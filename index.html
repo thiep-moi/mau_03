@@ -69,6 +69,46 @@
         }
 
         /* =========================================
+           [LÕI ĐỘNG CƠ GPU] TỐI ƯU HÓA 60FPS TOÀN CỤC
+           ========================================= */
+        html, body {
+            /* 1. KHỬ RĂNG CƯA & CHỐNG RUNG GIẬT CHỮ: Ép viền chữ sắc lẹm tuyệt đối trên màn Retina */
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            text-rendering: optimizeLegibility !important;
+            /* 2. CHẶN ĐỨNG CAO SU CUỘN TRANG (Chống tràn RAM, chống giật lùi màn hình) */
+            overscroll-behavior-y: none;
+        }
+
+        /* 3. LỆNH THIẾT QUÂN LUẬT PHẦN CỨNG (GPU ACCELERATION) */
+        /* Ép tất cả các vật thể bay, nhảy, trồi lên phải chạy bằng Card màn hình, cấm dùng CPU */
+        .reveal-card-3d, 
+        .calligraphy-text .char, 
+        .music-floating-btn,
+        .trio-pic img,
+        .photo-wrapper-new img {
+            /* Tàng hình mặt lưng 3D để chống vỡ hạt (pixelate) và xé viền khi bay */
+            -webkit-backface-visibility: hidden !important;
+            backface-visibility: hidden !important;
+            -webkit-perspective: 1000px;
+            perspective: 1000px;
+            /* Cấm trình duyệt tự ý tính toán, phải báo trước để cấp phát trước dung lượng RAM */
+            will-change: transform, opacity;
+        }
+
+        /* 4. CHỮA BỆNH "NGHẼN CỔ CHAI" CỦA BÓNG ĐỔ VÀ KÍNH MỜ (SÁT THỦ GÂY LAG TRÊN SAFARI) */
+        .shadow-3d-hard, 
+        .shadow-3d-soft, 
+        .gift-box, 
+        .invite-content,
+        .env-back,
+        .env-front {
+            /* Cú lừa phần cứng: Ép trình duyệt đưa các hiệu ứng kính mờ (blur) và bóng đổ (drop-shadow) nặng nề vào một Layer Đồ họa 3D riêng biệt */
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        /* =========================================
            [CORE CLASSES] LÕI PHÉP THUẬT VẬT LÝ 3D
            ========================================= */
         /* Thuật toán Mực in: Ép nét Trắng thành màu Nâu Mocha trầm */
