@@ -1536,24 +1536,10 @@
         }
 
         /* 4. THE PHYSICAL ENVELOPE (THUẬT TOÁN CO PHÓNG CHẤT LỎNG - FLUID ENGINE) */
-        .envelope-section-new {
-            padding: 4rem 1.5rem 6rem 1.5rem;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Vỏ phong bì: Nới rộng sức chứa, dùng % để co giãn tuyệt đối theo màn hình */
-        .envelope-wrapper {
-            position: relative;
-            width: 92%;
-            max-width: 450px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 4rem auto;
-        }
+        .envelope-section-new { padding: 4rem 1.5rem 6rem 1.5rem; position: relative; z-index: 2; }
+        
+        /* Vỏ phong bì: Trả về Block để không bị sập chiều cao trên Safari (Xóa Flex) */
+        .envelope-wrapper { position: relative; width: 92%; max-width: 450px; display: block; margin: 4rem auto; }
 
         .env-back {
             width: 100%;
@@ -2487,7 +2473,6 @@
    ========================================= */
         body.scroll-locked {
             overflow: hidden !important;
-            height: 100dvh !important;
             touch-action: none !important;
             /* Chặn đứng mọi thao tác vuốt trượt trên Mobile */
         }
@@ -2902,7 +2887,7 @@
         <!-- 9. HỘP MỪNG CƯỚI (QR CODE) -->
         <section class="gift-box-new reveal-card-3d">
             <h2 class="editorial-title">Gửi Gắm Yêu Thương</h2>
-            <p class="story-text-new reveal-card-3d text-only calligraphy-text
+            <p class="story-text-new reveal-card-3d text-only calligraphy-text"
                 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); margin-bottom: 2rem; font-style: italic;">
                 Sự hiện diện của quý khách là món quà trân quý nhất.<br>Nếu quý khách ở xa, xin vui lòng chọn:</p>
 
