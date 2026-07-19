@@ -1246,6 +1246,12 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
+            /* --- MA THUẬT ÉP NÉT (CRISP RENDERING ENGINE) --- */
+            image-rendering: -webkit-optimize-contrast; /* Ép Safari/iOS tắt làm mờ, đẩy độ rực rỡ và sắc nét lên tối đa */
+            image-rendering: high-quality; /* Lệnh tiêu chuẩn ép Chrome/Edge dùng bộ phân giải ảnh tốt nhất */
+            transform: translateZ(0); /* Cú lừa phần cứng: Đánh lừa trình duyệt đây là vật thể 3D để nó lấy Card màn hình (GPU) ra xử lý thay vì CPU */
+            backface-visibility: hidden; /* Chống vỡ hạt (pixelate) và rung viền khi cuộn trang */
+            will-change: transform; /* Báo trước cho trình duyệt dồn tài nguyên RAM vào khu vực này */
         }
 
         /* Đảo ngược Gradient: Từ sương trắng sang sương Đen mờ (Vignette) để nhấc bổng chữ trắng lên */
